@@ -1,0 +1,431 @@
+<div class="form-heading"> 
+    <div class="row">
+        <div class="col-6">
+                 <h4><i class="fa fa-user-circle"></i> Customers </h4>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-info float-right" (click)="addCustomer()">
+                <i class="fa fa-users"></i> Customer Group</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h5>Customer Search</h5>
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group">
+                <input class="form-control border-secondary py-2" type="search" placeholder="search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+        <div class="form-group">
+    
+    <select class="form-control mb-15" id="exampleFormControlSelect1">
+      <option>Select group</option>
+      <option>New customer</option>
+      <option>Loyal customer</option>
+      <option>Old customer</option>
+    </select>
+  </div>
+             
+        
+        <div class="col-3">
+            <button type="button" class="btn btn-primary btn-lg fa fa-plus" data-toggle="modal" data-target="#myModal">  Add customer</button> 
+                 </div>
+            <div id="myModal" class="modal fade container" role="dialog">
+                <div class="modal-dialog">
+              
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      
+                      <div class="container">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Name</label>
+                                <input type="text" class="form-control" id="validationCustom01"  value=""
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">ph. Number</label>
+                                
+                                <input type="text" class="form-control" id="validationCustom02"  value=""
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustomUsername">Email</label>
+                                <div class="input-group">
+                                   
+                                    <input type="text" class="form-control" id="validationCustomUsername" 
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please choose a email.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom03">Address</label>
+                                <input type="text" class="form-control" id="validationCustom03"  required>
+                               
+                            </div>
+                           
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom05">Zip</label>
+                                <input type="text" class="form-control" id="validationCustom05"  required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationCustom05">km/day</label>
+                                <input type="text" class="form-control" id="validationCustom05"  required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                           <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>Select group</option>
+                                  <option>New customer</option>
+                                  <option>Loyal customer</option>
+                                  <option>Old customer</option>
+                                  <
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom05">Note</label>
+                                <textarea class="form-control"></textarea>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          
+                        </div>
+                       
+                    </div>
+                    </div>
+                   
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary fa fa-floppy-o" > Save</button> 
+
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+    
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>Name</span></th>
+                                <th><span>Created</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                       
+                                        <span class="user-subhead">Arslan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-default">pending</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        
+                                        <span class="user-subhead">Ali</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-success">Done</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        
+                                        <span class="user-subhead">Farhan</span>
+                                    </td>
+                                    <td>2013/08/12</td>
+                                    <td class="text-center">
+                                        <span class="label label-danger">Done</span>
+                                    </td>
+                                    <td>
+                                        <a href="#">marlon@brando.com</a>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="form-heading"> 
+    <div class="row">
+        <div class="col-6">
+                 <h4><i class="fa fa-bar-chart" ></i>  Reports </h4>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="year()">
+            Year</button>
+            <button type="button" class="btn btn-info float-right  " (click)="month()">
+                Month</button>
+                <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="week()">
+                     Week</button>
+                     <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="day()">
+                        Day</button>
+                   
+                    
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <table class="table m-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Month</th>
+                <th scope="col">Monthly Sale</th>
+                <th scope="col">Monthly Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>January</td>
+                <td>87000</td>
+                <td>51000</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>February</td>
+                <td>97200</td>
+                <td>77000</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>March</td>
+                <td>88000</td>
+                <td>71000</td>
+              </tr>
+            </tbody>
+          </table>
+  
+  </div>
+  
+  <!-- PIE CHART -->
+  
+  
+  <div class="col-6">
+    <div>
+      <div class="chart">
+        <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
+    </div>
+    <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
+    <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
+    <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
+    <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
+    <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
+  </div>
+  </div>

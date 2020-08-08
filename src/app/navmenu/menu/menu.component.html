@@ -1,0 +1,96 @@
+<body>
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar" [class.active]="isToggle">
+                <div class="sidebar-header">
+                        
+                    <h3>eWorkShop</h3>
+                    <strong>BS</strong>
+                </div>
+        
+                <ul class="list-unstyled components">
+                
+                    <li>
+                            <a  [routerLink]="['/home/dashboard']">
+                            
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Dashboard
+                            </a>
+                        <a  [routerLink]="['/tickets/list']">
+                            
+                            <i class="fa fa-id-card" aria-hidden="true"></i>
+                            Tickets
+                        </a>
+                        
+                            <a  [routerLink]="['/pos/list']" href="#">
+                                <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+                              POS
+                            </a>
+                        
+                        
+                    </li>
+                    <li>
+                        <a  [routerLink]="['/customers/list']" href="#">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                          Customers
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a [routerLink]="['/inventory/list']" href="#">
+                            <i class="fa fa-barcode" aria-hidden="true"></i>
+                            Inventory
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/reports/list']" href="#">
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                           Reports 
+                        </a>
+                    </li>
+                </ul>
+                <li>
+                    <a [routerLink]="['/settings/list']" href="#">
+                        <i class="fa fa-cogs"></i>
+                        Settings
+                    </a>
+                </li>
+         
+            </nav>
+        
+            
+            <div id="content">
+        
+                <nav class="navbar navbar-expand-lg navbar-light bg-light d-none">
+                    <div class="container-fluid">
+        
+                        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleNav()">
+                            <span>Toggle Sidebar</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        </button>
+        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">This Week</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">This Month</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">This Year</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+        
+                <router-outlet></router-outlet>
+        
+            </div>
+        </div>
+        </body>

@@ -1,0 +1,344 @@
+<div class="form-heading"> 
+    <div class="row">
+        <div class="col-6">
+                 <h4><i class="fa fa-circle-o-notch"></i> POS </h4>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-info float-right  " (click)="endOfDay()" >
+                 End of day</button>
+                <button type="button" class="btn btn-info float-right ml-2 mr-2" (click)="salesHistory()">
+                     Sales history</button>
+                    <button type="button" class="btn btn-info float-right active"  >
+                        Checkout</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 mt-4">
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Product search" required>
+
+    </div>
+<div class="col-md-2 mt-4">
+    <select class="form-control" id="sel1">
+        <option>Alphabetic</option>
+        <option>Most sold</option>
+        <option>Price (low)</option>
+        <option>Price (high)</option>
+      </select>
+    </div>
+    <div class="col-md-1 mt-4">
+        <button class="btn btn-primary">clear</button>
+    </div>
+
+    <div class="col-6 text-center">
+        <button type="button" class="btn btn-primary btn-lg fa fa-plus mt-4 w-100" data-toggle="modal" data-target="#myModal">  Add customer</button> 
+             </div>
+        <div id="myModal" class="modal fade container" role="dialog">
+            <div class="modal-dialog">
+          
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                    
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  
+                  <div class="container ">
+                    <div class="form-row ">
+                        <div class="col-md-12 mb-3 ">
+                            <label for="validationCustom01">Name</label>
+                            <input type="text" class="form-control" id="validationCustom01"  value=""
+                                required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">ph. Number</label>
+                            
+                            <input type="text" class="form-control" id="validationCustom02"  value=""
+                                required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustomUsername">Email</label>
+                            <div class="input-group">
+                               
+                                <input type="text" class="form-control" id="validationCustomUsername" 
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a email.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">Address</label>
+                            <input type="text" class="form-control" id="validationCustom03"  required>
+                           
+                        </div>
+                       
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">Zip</label>
+                            <input type="text" class="form-control" id="validationCustom05"  required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">km/day</label>
+                            <input type="text" class="form-control" id="validationCustom05"  required>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                       <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option>Select group</option>
+                              <option>New customer</option>
+                              <option>Loyal customer</option>
+                              <option>Old customer</option>
+                              <
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="validationCustom05">Note</label>
+                            <textarea class="form-control"></textarea>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      
+                    </div>
+                   
+                </div>
+                </div>
+               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary fa fa-floppy-o" > Save</button> 
+
+                </div>
+              </div>
+          
+            </div>
+          </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+    <div class="row">
+        <div class="col-sm-6 ">
+          <div class="card mt-3 ">
+            <a href="#" >
+            <div class="card-body"style=" color: black" >
+                <div class="card-body text-center " >Shocks</div>
+                <span class="size ng-star-inserted text-left">Stock: 10</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 500</span>
+
+
+            </div>
+          </a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card mt-3 ">
+              <a href="#" >
+              <div class="card-body" style=" color: black" >
+                <div class="card-body text-center">Brake rod</div>
+                <span class="size ng-star-inserted text-left">Stock: 25</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 80</span>             
+               </div>
+              </a>
+              </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card mt-3 ">
+              <a href="#" >
+              <div class="card-body"style=" color: black" > 
+                <div class="card-body text-center">Tail light</div>
+                <span class="size ng-star-inserted text-left">Stock: 20</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 100</span>              
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            
+            <div class="card mt-3 ">
+              <a href="#" >
+              <div class="card-body"style=" color: black" >
+                <div class="card-body text-center">Tube</div>
+                <span class="size ng-star-inserted text-left">Stock: 11</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 300</span>              
+              </div>
+           </a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card mt-3 ">
+              <a href="#" >
+              <div class="card-body"style=" color: black" >
+                <div class="card-body text-center">Clutch</div>
+                <span class="size ng-star-inserted text-left">Stock: 30</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 50</span>             
+               </div>
+            </a>
+              </div>
+          </div>
+        <div class="col-sm-6">
+          <div class="card mt-3">
+            <a href="#" >
+            <div class="card-body"style=" color: black" >
+                <div class="card-body text-center">Head light</div>
+                <span class="size ng-star-inserted text-left">Stock: 12</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 12</span>            
+              </div>
+              </a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card mt-3">
+              <a href="#" >
+              <div class="card-body"style=" color: black;" >
+                <div class="card-body text-center">Winker</div>
+                <span class="size ng-star-inserted text-left">Stock: 18</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 120</span>             
+              </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card mt-3">
+              <a href="#" >
+              <div class="card-body"style=" color: black" >
+                <div class="card-body text-center">Steering</div>
+                <span class="size ng-star-inserted text-left">Stock: 13</span>
+                <span class="size ng-star-inserted text-right ml-5">Price: 250</span>             
+               </div>
+              </a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+<div col-md-6>
+    <div class="container mt:3">
+        <div class="card mt-3">
+      
+      <div class="card-body">
+      <div class="row mb-4">
+      <div class="col-sm-6">
+     
+     
+     
+      </div>
+      
+      <div class="col-sm-6">
+     
+     
+    
+      </div>
+      
+      
+      
+      </div>
+      
+      <div class="table-responsive-sm">
+      <table class="table table-striped">
+      <thead>
+      <tr>
+      
+      <th>Product</th>
+      
+      
+      <th class="right">Price</th>
+        <th class="center">Qty</th>
+      <th class="right">Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td class="left strong">Speedometer</td>
+      
+      
+      <td class="right">Rs. 999,00</td>
+        <td class="center">1</td>
+      <td class="right">Rs. 999,00</td>
+      </tr>
+      <tr>
+      <td class="left">Cushion Assy Rear</td>
+      
+      
+      <td class="right">Rs. 150,00</td>
+        <td class="center">2</td>
+      <td class="right">Rs. 3.000,00</td>
+      </tr>
+      <tr>
+      <td class="left">Brake Rod</td>
+      
+      
+      <td class="right">Rs. 499,00</td>
+        <td class="center">1</td>
+      <td class="right">Rs. 499,00</td>
+      </tr>
+      <tr>
+      <td class="left">Piston Kit</td>
+      
+      
+      <td class="right">Rs. 3.999,00</td>
+        <td class="center">1</td>
+      <td class="right">Rs. 3.999,00</td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+      <div class="row">
+      <div class="col-lg-4 col-sm-5">
+      
+      </div>
+      
+      <div class="col-lg-4 col-sm-5 ml-auto">
+      <table class="table table-clear">
+      <tbody>
+      <tr>
+      <td class="left">
+      <strong>Total</strong>
+      </td>
+      <td class="right">Rs. 8.497,00</td>
+      </tr>
+      
+      
+      
+      </tbody>
+      </table>
+      
+      </div>
+      
+      </div>
+      
+      </div>
+      </div>
+      </div>
+</div>
+<nav aria-label="...">
+    <ul class="pagination mt-3 ml-3 ">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active">
+        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

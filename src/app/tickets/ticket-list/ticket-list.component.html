@@ -1,0 +1,89 @@
+<div class="form-heading"> 
+    <div class="row">
+        <div class="col-6">
+                 <h4><i class="fa fa-list-ol"></i> Tickets </h4>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-info float-right" (click)="addTicket()">
+                <i class="fa fa-ticket"></i> New Ticket</button>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" [svData]="dataList" #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name"
+    svSortOrder="asc">
+    <thead>
+        <tr>
+            <th>
+                <sv-default-sorter by="name">#</sv-default-sorter>
+            </th>
+            <th>Shipped</th>
+            <th>Order ID</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>fsdd</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>Cape</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>fata</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>Ind</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Oman</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>lhr</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>khi</td>
+              </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <sv-bootstrap-paginator [rowsOnPageSet]="[5, 10, 25]"></sv-bootstrap-paginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>

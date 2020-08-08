@@ -1,0 +1,88 @@
+<div class="form-heading"> 
+    <div class="row">
+        <div class="col-6">
+                 <h4><i class="fa fa-barcode"></i> Inventory </h4>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="category()">
+            Inventory Category</button>
+            <button type="button" class="btn btn-info float-right  " (click)="stock()">
+                 Stock</button>
+                <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="promotion()">
+                     Promotion</button>
+                   
+                    
+        </div>
+    </div>
+</div>
+<div class="container">
+ <div class="row">
+    <div class="col-sm-6">
+        <div class="input-group">
+          <input class="form-control border-secondary py-2 mb-4 mt-3 " type="search" placeholder="search for a specific product">
+          <div class="input-group-append ">
+              <button class="btn btn-outline-secondary mb-4 mt-3" type="button">
+                  <i class="fa fa-search"></i>
+              </button>
+          </div>
+      </div>
+       </div>
+       <div class="col-sm-6">
+        <button type="button" class="btn btn-primary btn-lg fa fa-plus mt-3" data-toggle="modal" data-target="#myModal">  Add product</button>
+       </div>
+ </div>
+</div>
+<div class="form-check-inline">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input mb-3" value="">In stock
+    </label>
+  </div>
+  <div class="form-check-inline">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input mb-3" value="">Show cost price
+    </label>
+  </div>
+  <div class="form-check-inline">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input mb-3" value="" >Needs reorder
+    </label>
+  </div>
+   <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Cost price</th>
+        <th scope="col">Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>

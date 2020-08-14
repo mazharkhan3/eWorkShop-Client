@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../shared/authentication.service';
-import { error } from 'protractor';
-import { Router } from '@angular/router';
-import { DataService } from 'src/app/shared/services/data.service';
+import { Component, OnInit } from "@angular/core";
+import { AuthenticationService } from "../shared/authentication.service";
+import { error } from "protractor";
+import { Router } from "@angular/router";
+import { DataService } from "src/app/shared/services/data.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
   login: any = {};
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private router: Router,
     private dataService: DataService
-  ) { }
+  ) {}
 
   ngOnInit() {
     localStorage.removeItem("token");
@@ -25,15 +25,13 @@ export class LoginComponent implements OnInit {
 
   postLogin() {
     this.authenticationService.login(this.login).subscribe(
-      data => {
+      (data) => {
         this.dataService.setToken(data["access_token"]);
-        this.router.navigate(['home', 'dashboard']);
+        this.router.navigate(["home", "dashboard"]);
       },
-      error => {
-        debugger;
+      (error) => {
         this.response = error.error.Message;
       }
     );
   }
-
 }

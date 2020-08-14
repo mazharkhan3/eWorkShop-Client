@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CustomerService } from "../shared/customer.service";
+import { CustomerGroup } from "src/app/models/customerGroup";
 
 @Component({
   selector: "app-customer-form",
@@ -7,9 +8,9 @@ import { CustomerService } from "../shared/customer.service";
   styleUrls: ["./customer-form.component.scss"],
 })
 export class CustomerFormComponent implements OnInit {
-  customerGroups: any;
-  customerGroup: any = {};
-  customerGroupObj: any = {};
+  customerGroups: CustomerGroup[];
+  customerGroup: CustomerGroup = new CustomerGroup();
+  customerGroupObj: CustomerGroup;
   customerGroupdID: number;
   customerGroupName: string;
 
@@ -50,7 +51,6 @@ export class CustomerFormComponent implements OnInit {
   removeCustomerGroup() {
     this.customerService.removeCustomerGroup(this.customerGroupdID).subscribe(
       (data) => {
-        debugger;
         const index = this.customerGroups.findIndex(
           (d) => d.CustomerGroupID === data.CustomerGroupID
         );
@@ -63,8 +63,7 @@ export class CustomerFormComponent implements OnInit {
     );
   }
 
-  storeCustomerGroupData(id: number, customerGroupObj: any) {
-    debugger;
+  storeCustomerGroupData(id: number, customerGroupObj: CustomerGroup) {
     // Global Set Data
     this.customerGroupObj = customerGroupObj;
     this.customerGroupdID = id;

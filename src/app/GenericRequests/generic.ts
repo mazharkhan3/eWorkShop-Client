@@ -26,7 +26,6 @@ export class GenericRequests {
   }
 
   customerGroupsList() {
-    debugger;
     return this.customerGroups;
   }
 }

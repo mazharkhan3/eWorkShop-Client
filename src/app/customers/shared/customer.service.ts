@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
+import { Observable } from "rxjs";
+import { CustomerGroup } from "src/app/models/customerGroup";
+import { Customer } from "src/app/models/customer";
 
 @Injectable({
   providedIn: "root",
@@ -8,13 +11,13 @@ import { environment } from "src/environments/environment";
 export class CustomerService {
   apiUrlGetUsers: string = "api/Users/GetUsers";
 
-  /* Customer */
+  /* Customer API */
   apiUrlGetCustomer: string = "api/Users/GetUsers";
   apiUrlSaveCustomer: string = "api/Users/SaveUser";
   apiUrlDeleteCustomer: string = "api/Users/DeleteUser";
   apiUrlUpdateCustomer: string = "api/Users/UpdateUser";
 
-  /* Customer Group */
+  /* Customer Group API*/
   apiUrlGetCustomerGroups: string = "api/CustomerGroups/GetCustomerGroups";
   apiUrlSaveCustomerGroup: string = "api/CustomerGroups/SaveCustomerGroup";
   apiUrlDeleteCustomerGroup: string = "api/CustomerGroups/DeleteCustomerGroup";
@@ -22,41 +25,61 @@ export class CustomerService {
 
   constructor(private http: HttpClient) {}
 
-  getCustomers() {
-    return this.http.get(environment.restApiUrl + this.apiUrlGetUsers);
+  /* Customer */
+
+  getCustomers(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(
+      environment.restApiUrl + this.apiUrlGetUsers
+    );
   }
 
-  saveCustomer(customer: any) {
-    debugger;
-    return this.http.post(
+  saveCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(
       environment.restApiUrl + this.apiUrlSaveCustomer,
       customer
     );
   }
 
-  /* Customer Groups  */
-  getCustomerGroups() {
-    return this.http.get(environment.restApiUrl + this.apiUrlGetCustomerGroups);
+  updateCustomer(id: number, customer: Customer): Observable<CustomerGroup> {
+    return this.http.post<CustomerGroup>(
+      `${environment.restApiUrl}${this.apiUrlUpdateCustomer}?id=${id}`,
+      customer
+    );
   }
 
-  saveCustomerGroup(customerGroup: any) {
-    return this.http.post(
+  removeCustomer(id: number): Observable<Customer> {
+    return this.http.get<Customer>(
+      `${environment.restApiUrl}${this.apiUrlDeleteCustomer}?id=${id}`
+    );
+  }
+
+  /* Customer Groups  */
+
+  getCustomerGroups(): Observable<CustomerGroup[]> {
+    return this.http.get<CustomerGroup[]>(
+      environment.restApiUrl + this.apiUrlGetCustomerGroups
+    );
+  }
+
+  saveCustomerGroup(customerGroup: CustomerGroup): Observable<CustomerGroup> {
+    return this.http.post<CustomerGroup>(
       environment.restApiUrl + this.apiUrlSaveCustomerGroup,
       customerGroup
     );
   }
 
-  updateCustomerGroup(id: number, customerGroup: any) {
-    debugger;
-    return this.http.post(
+  updateCustomerGroup(
+    id: number,
+    customerGroup: CustomerGroup
+  ): Observable<CustomerGroup> {
+    return this.http.post<CustomerGroup>(
       `${environment.restApiUrl}${this.apiUrlUpdateCustomerGroup}?id=${id}`,
       customerGroup
     );
   }
 
-  removeCustomerGroup(id: number) {
-    debugger;
-    return this.http.get(
+  removeCustomerGroup(id: number): Observable<CustomerGroup> {
+    return this.http.get<CustomerGroup>(
       `${environment.restApiUrl}${this.apiUrlDeleteCustomerGroup}?id=${id}`
     );
   }

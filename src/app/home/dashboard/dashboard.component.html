@@ -1,15 +1,59 @@
-<div class="bg">
-<p>dashboard works!</p>
-
-
-<a href (click)="logOut()"> Log out</a>
+<div class="logout-section">
+  <a href (click)="logOut()"> {{ userName }}</a>
 </div>
 
+<div class="dashboard-stats" style="margin-bottom: 20px">
+  <h3>Dashboard Stats</h3>
+</div>
 
+<section>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <p class="card-text">
+            Total: <b>{{ dashboardStats.Users }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Orders</h5>
+          <p class="card-text">
+            Total: <b>{{ dashboardStats.Orders }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Products</h5>
+          <p class="card-text">
+            Total: <b>{{ dashboardStats.Products }}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section style="margin-top: 50px">
+  <div class="row">
+    <div class="col-12">
+      <div id="chartContainer" style="height: 370px; width: 100%"></div>
+    </div>
+  </div>
+</section>
 
-
-
-
-
-
+<!-- 
+<section style="margin-top: 50px">
+  <div class="row">
+    <div class="col-12">
+      <div id="chartContainer1" style="height: 370px; width: 100%"></div>
+    </div>
+  </div>
+</section> -->

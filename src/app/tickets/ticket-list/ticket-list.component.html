@@ -1,89 +1,69 @@
-<div class="form-heading"> 
-    <div class="row">
-        <div class="col-6">
-                 <h4><i class="fa fa-list-ol"></i> Tickets </h4>
-        </div>
-        <div class="col-6">
-            <button type="button" class="btn btn-info float-right" (click)="addTicket()">
-                <i class="fa fa-ticket"></i> New Ticket</button>
-        </div>
+<div class="form-heading">
+  <div class="row">
+    <div class="col-6">
+      <h4><i class="fa fa-list-ol"></i> Tickets</h4>
     </div>
+    <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-info float-right"
+        (click)="goToTicketForm()"
+      >
+        <i class="fa fa-ticket"></i> New Ticket
+      </button>
+    </div>
+  </div>
 </div>
 
-<table class="table table-striped" [svData]="dataList" #sv="svDataTable" [svRowsOnPage]="5" svSortBy="name"
-    svSortOrder="asc">
-    <thead>
-        <tr>
-            <th>
-                <sv-default-sorter by="name">#</sv-default-sorter>
-            </th>
-            <th>Shipped</th>
-            <th>Order ID</th>
-            <th>City</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fsdd</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Cape</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fata</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Ind</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Oman</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>lhr</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>khi</td>
-              </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="4">
-                <sv-bootstrap-paginator [rowsOnPageSet]="[5, 10, 25]"></sv-bootstrap-paginator>
-            </td>
-        </tr>
-    </tfoot>
+<table
+  class="table table-striped"
+  [svData]="dataList"
+  #sv="svDataTable"
+  [svRowsOnPage]="5"
+  svSortBy="name"
+  svSortOrder="asc"
+>
+  <thead>
+    <tr>
+      <th>Ticket Id</th>
+      <th>Description</th>
+      <th>Customer Name</th>
+      <th>Total Cost</th>
+      <th>Pickup Time</th>
+      <!-- <th>Edit</th> -->
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of dataList">
+      <td>{{ ticket.TicketID }}</td>
+      <td>{{ ticket.Description }}</td>
+      <td>{{ ticket.CustomerName || "N/A" }}</td>
+      <td>{{ ticket.TotalCost }}</td>
+      <td>{{ ticket.PickUpTime }}</td>
+      <!-- <td>
+        <button
+          type="button"
+          data-toggle="modal"
+          data-target="#edit-modal"
+          data-uid="1"
+          class="update btn btn-warning btn-sm fa fa-pencil"
+          (click)="storeCustomerData(customer.UserID, customer)"
+        >
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+      </td> -->
+      <td>
+        <button
+          type="button"
+          data-toggle="modal"
+          data-target="#delete"
+          (click)="delete(ticket.TicketID)"
+          class="delete btn btn-danger btn-sm"
+        >
+          <span class="fa fa-trash"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
 </table>

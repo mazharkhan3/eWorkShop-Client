@@ -1,80 +1,57 @@
-<div class="form-heading"> 
-    <div class="row">
-        <div class="col-6">
-                 <h4><i class="fa fa-bar-chart" ></i>  Reports </h4>
-        </div>
-        <div class="col-6">
-          <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="year()">
-            Year</button>
-            <button type="button" class="btn btn-info float-right  " (click)="month()">
-                Month</button>
-                <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="week()">
-                     Week</button>
-                     <button type="button" class="btn btn-info float-right ml-2 mr-2 " (click)="promotion()">
-                        Day</button>
-                   
-                              
-        </div>
+<div class="form-heading">
+  <div class="row">
+    <div class="col-6">
+      <h4><i class="fa fa-bar-chart"></i> Reports</h4>
     </div>
-</div>
-
-<div class="row">
-  <div class="col-6">
-<div class="flex chart">
-  <div class="flex-item">
-    <div style="display: block;">
-    <canvas baseChart width="400" height="400"
-                [datasets]="lineChartData"
-                [labels]="lineChartLabels"
-                [options]="lineChartOptions"
-                [colors]="lineChartColors"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType"
-                [plugins]="lineChartPlugins"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-    </div>
-  </div>
-  <div class="flex-item">
-    <table class="table table-responsive table-condensed">
-      <tr>
-        <th *ngFor="let label of lineChartLabels">{{label}}</th>
-      </tr>
-      <tr *ngFor="let d of lineChartData; let i=index" [class]="'line-'+i">
-        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-      </tr>
-    </table>
-    <button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
-    <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
-    <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
-    <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
-    <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
+    <!-- <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-info float-right ml-2 mr-2"
+        (click)="year()"
+      >
+        Year
+      </button>
+      <button type="button" class="btn btn-info float-right" (click)="month()">
+        Month
+      </button>
+      <button
+        type="button"
+        class="btn btn-info float-right ml-2 mr-2"
+        (click)="week()"
+      >
+        Week
+      </button>
+      <button
+        type="button"
+        class="btn btn-info float-right ml-2 mr-2"
+        (click)="promotion()"
+      >
+        Day
+      </button>
+    </div> -->
   </div>
 </div>
 
-</div>
-
-<!-- PIE CHART -->
-
-
-<div class="col-6">
-  <div>
-    <div class="chart">
-      <canvas baseChart
-        [data]="pieChartData"
-        [labels]="pieChartLabels"
-        [chartType]="pieChartType"
-        [options]="pieChartOptions"
-        [plugins]="pieChartPlugins"
-        [colors]="pieChartColors"
-        [legend]="pieChartLegend">
-      </canvas>
+<section style="margin-top: 50px">
+  <div class="row">
+    <div class="col-12">
+      <div id="chartContainer" style="height: 370px; width: 100%"></div>
     </div>
   </div>
-  <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
-  <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
-  <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
-  <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
-  <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
-</div>
-</div>
+</section>
+
+<section style="margin-top: 50px">
+  <div class="row">
+    <div class="col-12">
+      <div id="chartContainer1" style="height: 370px; width: 100%"></div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top: 50px">
+  <div class="row">
+    <div class="col-12">
+      <div id="chartContainer2" style="height: 370px; width: 100%"></div>
+    </div>
+  </div>
+</section>

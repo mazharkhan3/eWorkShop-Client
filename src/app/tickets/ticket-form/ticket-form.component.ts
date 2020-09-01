@@ -5,6 +5,8 @@ import { CustomerService } from "src/app/customers/shared/customer.service";
 import { Ticket } from "src/app/models/ticket";
 import { TemplateType } from "src/app/models/TemplateType";
 import { TicketInvoice } from "src/app/models/TicketInvoice";
+import { Product } from "src/app/models/product";
+import { debug } from "console";
 
 @Component({
   selector: "app-ticket-form",
@@ -12,17 +14,18 @@ import { TicketInvoice } from "src/app/models/TicketInvoice";
   styleUrls: ["./ticket-form.component.scss"],
 })
 export class TicketFormComponent implements OnInit {
+  totalCost: number = 0;
+
   // Lists
   customersList: Customer[];
-  ticketsList: Ticket[];
-  templateTypesList: TemplateType[];
-  ticketInvoicesList: TicketInvoice[];
+  productsUIList: Product[] = [];
+
+  ticketInvoicesList: TicketInvoice[] = [];
 
   // Objects
   customerInfoUI: Customer = new Customer();
   ticketObjUI: Ticket = new Ticket();
   templateTypesObjUI: TemplateType = new TemplateType();
-  ticketInvoiceObjUI: TicketInvoice = new TicketInvoice();
 
   constructor(
     private ticketService: TicketsService,
@@ -51,27 +54,151 @@ export class TicketFormComponent implements OnInit {
   }
 
   saveTicket() {
-    this.templateTypesObjUI.Front = "Test";
-    this.templateTypesObjUI.Rear = "Test";
-    this.templateTypesObjUI.Other = "Test";
+    // loop through productsUIList and save the list to ticketInvoice
 
-    this.ticketInvoiceObjUI.Item = "Test";
-    this.ticketInvoiceObjUI.Description = "Test";
-    this.ticketInvoiceObjUI.Unit_Cost = 22;
-    this.ticketInvoiceObjUI.Quantity = 43;
-    this.ticketInvoiceObjUI.Discount = 22;
+    this.productsUIList.map((x) => {
+      let ticketInvoiceObjUI: TicketInvoice = new TicketInvoice();
 
-    this.ticketObjUI.TicketInvoices.push(this.ticketInvoiceObjUI);
+      ticketInvoiceObjUI.Item = x.productName;
+      ticketInvoiceObjUI.Unit_Cost = x.productCost;
+
+      this.ticketInvoicesList.push(ticketInvoiceObjUI);
+    });
+
+    this.ticketObjUI.TicketInvoices = this.ticketInvoicesList;
     this.ticketObjUI.TemplateTypes.push(this.templateTypesObjUI);
-    console.log(this.ticketObjUI);
+    // console.log(this.ticketObjUI);
+    debugger;
     this.ticketService.saveTicket(this.ticketObjUI).subscribe(
       (data) => {
-        this.ticketsList.push(data);
+        location.reload();
+        // this.ticketsList.push(data);
         // clear obj
       },
       (error) => {
-        alert("error");
+        console.log(error);
       }
     );
+  }
+
+  frontProducts(e: any) {
+    let productsList: string[] = [];
+    const productObj: Product = new Product();
+
+    if (this.templateTypesObjUI.Front != undefined) {
+      productsList = this.templateTypesObjUI.Front.split(",");
+    }
+
+    if (e.checked) {
+      productsList.push(e.value);
+
+      productObj.productName = e.value;
+      productObj.productCost = this.randomNumber();
+
+      this.productsUIList.push(productObj);
+    } else {
+      const index = productsList.indexOf(e.value, 0);
+
+      if (index > -1) {
+        productsList.splice(index, 1);
+      }
+
+      this.productsUIList = this.productsUIList.filter(
+        (x) => x.productName != e.value
+      );
+    }
+
+    this.templateTypesObjUI.Front = productsList.toString();
+    console.log(this.templateTypesObjUI);
+    this.calculateTotalCost();
+  }
+
+  rearProducts(e: any) {
+    let productsList: string[] = [];
+    const productObj: Product = new Product();
+
+    if (this.templateTypesObjUI.Rear != undefined) {
+      productsList = this.templateTypesObjUI.Rear.split(",");
+    }
+
+    if (e.checked) {
+      productsList.push(e.value);
+
+      productObj.productName = e.value;
+      productObj.productCost = this.randomNumber();
+
+      this.productsUIList.push(productObj);
+    } else {
+      const index = productsList.indexOf(e.value, 0);
+
+      if (index > -1) {
+        productsList.splice(index, 1);
+      }
+
+      this.productsUIList = this.productsUIList.filter(
+        (x) => x.productName != e.value
+      );
+    }
+
+    this.templateTypesObjUI.Rear = productsList.toString();
+    console.log(this.templateTypesObjUI);
+    this.calculateTotalCost();
+  }
+
+  otherProducts(e: any) {
+    debugger;
+    let productsList: string[] = [];
+    const productObj: Product = new Product();
+
+    if (this.templateTypesObjUI.Other != undefined) {
+      productsList = this.templateTypesObjUI.Other.split(",");
+    }
+
+    if (e.checked) {
+      productsList.push(e.value);
+
+      productObj.productName = e.value;
+      productObj.productCost = this.randomNumber();
+
+      this.productsUIList.push(productObj);
+    } else {
+      const index = productsList.indexOf(e.value, 0);
+
+      if (index > -1) {
+        productsList.splice(index, 1);
+      }
+
+      this.productsUIList = this.productsUIList.filter(
+        (x) => x.productName != e.value
+      );
+    }
+
+    this.templateTypesObjUI.Other = productsList.toString();
+
+    console.log(this.templateTypesObjUI, this.productsUIList);
+    this.calculateTotalCost();
+  }
+
+  randomNumber() {
+    return Math.floor(Math.random() * 5000);
+  }
+
+  getCurrentDate() {
+    var date = new Date();
+    var month = date.getMonth();
+    var day = date.getDay();
+    var year = date.getFullYear();
+
+    return `${month}/${day}/${year}`;
+  }
+
+  calculateTotalCost() {
+    var sum = 0;
+
+    this.productsUIList.map((x) => {
+      sum += x.productCost;
+    });
+
+    this.totalCost = sum;
   }
 }

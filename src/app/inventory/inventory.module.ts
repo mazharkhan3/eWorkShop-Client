@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
-import { InventoryRoutingModule } from './inventory-routing.module';
-import { InventoryListComponent } from './inventory-list/inventory-list.component';
-import { PromotionListComponent } from './promotion-list/promotion-list.component';
-import { StockListComponent } from './stock-list/stock-list.component';
-import { CategoryListComponent } from './category-list/category-list.component';
-
+import { InventoryRoutingModule } from "./inventory-routing.module";
+import { InventoryListComponent } from "./inventory-list/inventory-list.component";
+import { PromotionListComponent } from "./promotion-list/promotion-list.component";
+import { StockListComponent } from "./stock-list/stock-list.component";
+import { CategoryListComponent } from "./category-list/category-list.component";
 
 @NgModule({
-  declarations: [InventoryListComponent, PromotionListComponent, StockListComponent, CategoryListComponent],
-  imports: [
-    CommonModule,
-    InventoryRoutingModule
-  ]
+  declarations: [
+    InventoryListComponent,
+    PromotionListComponent,
+    StockListComponent,
+    CategoryListComponent,
+  ],
+  imports: [CommonModule, InventoryRoutingModule, FormsModule],
 })
-export class InventoryModule { }
+export class InventoryModule {}

@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.login).subscribe(
       (data) => {
         this.dataService.setToken(data["access_token"]);
+        this.dataService.setUser(JSON.stringify(data));
         this.router.navigate(["home", "dashboard"]);
       },
       (error) => {

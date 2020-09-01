@@ -18,7 +18,7 @@
           (change)="populateCustomerInfo($event.target.value)"
           [(ngModel)]="ticketObjUI.CustomerID"
         >
-          <option value="">Select Customer</option>
+          <option selected value="">Select Customer</option>
           <option
             *ngFor="let customer of customersList"
             [value]="customer.UserID"
@@ -166,61 +166,147 @@
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox1" />
-                <label for="checkbox1">Headlight</label>
+                <input
+                  #headlight
+                  (click)="frontProducts(headlight)"
+                  type="checkbox"
+                  name="checkbox"
+                  id="headlight"
+                  value="Headlight"
+                />
+                <label for="headlight">Headlight</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox2" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox2"
+                  #Speedometer
+                  value="Speedometer"
+                  (click)="frontProducts(Speedometer)"
+                />
                 <label for="checkbox2">Speedometer</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox3" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox3"
+                  #Winker
+                  value="Winker"
+                  (click)="frontProducts(Winker)"
+                />
                 <label for="checkbox3">Winker</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox4" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox4"
+                  #Cushion
+                  value="Cushion Assy Rear"
+                  (click)="frontProducts(Cushion)"
+                />
                 <label for="checkbox4">Cushion Assy Rear</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox5" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox5"
+                  #Hub
+                  value="Hub Front Wheel"
+                  (click)="frontProducts(Hub)"
+                />
                 <label for="checkbox5">Hub Front Wheel</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox6" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox6"
+                  #Spoke
+                  value="Spoke & Nipple Set Front"
+                  (click)="frontProducts(Spoke)"
+                />
                 <label for="checkbox6">Spoke & Nipple Set Front</label>
               </div>
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox7" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox7"
+                  #Cable
+                  value="Cable Frond Brake"
+                  (click)="frontProducts(Cable)"
+                />
                 <label for="checkbox7">Cable Frond Brake</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox8" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox8"
+                  #Fuel
+                  value="Fuel Tank"
+                  (click)="frontProducts(Fuel)"
+                />
                 <label for="checkbox8">Fuel Tank</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox9" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox9"
+                  #Tire
+                  value="Tire Front"
+                  (click)="frontProducts(Tire)"
+                />
                 <label for="checkbox9">Tire Front</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox10" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox10"
+                  #Clutch
+                  value="Clutch"
+                  (click)="frontProducts(Clutch)"
+                />
                 <label for="checkbox10">Clutch</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox11" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox11"
+                  #Steering
+                  value="Steering"
+                  (click)="frontProducts(Steering)"
+                />
                 <label for="checkbox11">Steering</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox12" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox12"
+                  #Disk
+                  value="Disk Brake"
+                  (click)="frontProducts(Disk)"
+                />
                 <label for="checkbox12">Disk Brake</label>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div
         class="tab-pane fade"
         id="profile"
@@ -231,27 +317,69 @@
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox13" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox13"
+                  #Assy
+                  value="Cushion Assy Rea"
+                  (click)="rearProducts(Assy)"
+                />
                 <label for="checkbox13">Cushion Assy Rear</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox14" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox14"
+                  #Tail
+                  value="Tail Light"
+                  (click)="rearProducts(Tail)"
+                />
                 <label for="checkbox14">Tail Light</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox15" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox15"
+                  #Drive
+                  value="Final Drive Sprocket"
+                  (click)="rearProducts(Drive)"
+                />
                 <label for="checkbox15">Final Drive Sprocket</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox16" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox16"
+                  #Luggae
+                  value="Luggae Rack"
+                  (click)="rearProducts(Luggae)"
+                />
                 <label for="checkbox16">Luggae Rack</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox17" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox17"
+                  #fender
+                  value="Rear fender"
+                  (click)="rearProducts(fender)"
+                />
                 <label for="checkbox17">Rear fender</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox18" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox18"
+                  #Rod
+                  value="Brake Rod"
+                  (click)="rearProducts(Rod)"
+                />
                 <label for="checkbox18">Brake Rod</label>
               </div>
             </div>
@@ -259,27 +387,69 @@
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox19" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox19"
+                  #Rest
+                  value="Foot Rest"
+                  (click)="rearProducts(Rest)"
+                />
                 <label for="checkbox19">Foot Rest</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox20" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox20"
+                  #Shocks
+                  value="Shocks"
+                  (click)="rearProducts(Shocks)"
+                />
                 <label for="checkbox20">Shocks</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox21" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox21"
+                  #Chain
+                  value="Chain Set"
+                  (click)="rearProducts(Chain)"
+                />
                 <label for="checkbox21">Chain Set</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox22" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox22"
+                  #Pad
+                  value="Brake Pad"
+                  (click)="rearProducts(Pad)"
+                />
                 <label for="checkbox22">Brake Pad</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox23" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox23"
+                  #Wink
+                  value="Wink Rear"
+                  (click)="rearProducts(Wink)"
+                />
                 <label for="checkbox23">Wink Rear</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox24" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox24"
+                  #Flap
+                  value="Mud Flap"
+                  (click)="rearProducts(Flap)"
+                />
                 <label for="checkbox24">Mud Flap</label>
               </div>
             </div>
@@ -296,27 +466,69 @@
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox25" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox25"
+                  #Battery
+                  value="Battery"
+                  (click)="otherProducts(Battery)"
+                />
                 <label for="checkbox25">Battery</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox26" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox26"
+                  #Piston
+                  value="Piston Kit"
+                  (click)="otherProducts(Piston)"
+                />
                 <label for="checkbox26">Piston Kit</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox27" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox27"
+                  #Friction
+                  value="Disk Clutch Friction"
+                  (click)="otherProducts(Friction)"
+                />
                 <label for="checkbox27">Disk Clutch Friction</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox28" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox28"
+                  #Exhaust
+                  value="Muffler Exhaust"
+                  (click)="otherProducts(Exhaust)"
+                />
                 <label for="checkbox28">Muffler Exhaust</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox29" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox29"
+                  #Double
+                  value="Seat Assy Double"
+                  (click)="otherProducts(Double)"
+                />
                 <label for="checkbox29">Seat Assy Double</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox30" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox30"
+                  #Connecting
+                  value="Connecting Rod Kit"
+                  (click)="otherProducts(Connecting)"
+                />
                 <label for="checkbox30">Connecting Rod Kit</label>
               </div>
             </div>
@@ -324,27 +536,69 @@
           <div class="col-md-6">
             <div class="funkyradio">
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox31" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox31"
+                  #Plug
+                  value="Spark Plug"
+                  (click)="otherProducts(Plug)"
+                />
                 <label for="checkbox31">Spark Plug</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox32" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox32"
+                  #AHL
+                  value="AHL Tyre"
+                  (click)="otherProducts(AHL)"
+                />
                 <label for="checkbox32">AHL Tyre</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox33" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox33"
+                  #Cover
+                  value="Chain Cover Set"
+                  (click)="otherProducts(Cover)"
+                />
                 <label for="checkbox33">Chain Cover Set</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox34" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox34"
+                  #Sproket
+                  value="Chain Sproket Kit"
+                  (click)="otherProducts(Sproket)"
+                />
                 <label for="checkbox34">Chain Sproket Kit</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox35" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox35"
+                  #Shoe
+                  value="Brake Shoe Set"
+                  (click)="otherProducts(Shoe)"
+                />
                 <label for="checkbox35">Brake Shoe Set</label>
               </div>
               <div class="funkyradio-primary">
-                <input type="checkbox" name="checkbox" id="checkbox36" />
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox36"
+                  #Cleaner
+                  value="Air Cleaner"
+                  (click)="otherProducts(Cleaner)"
+                />
                 <label for="checkbox36">Air Cleaner</label>
               </div>
             </div>
@@ -384,8 +638,8 @@
 <div class="container mt:3">
   <div class="card mt-3">
     <div class="card-header">
-      Invoice
-      <strong>01/01/01/2018</strong>
+      Invoice Date
+      <strong>{{ getCurrentDate() }}</strong>
     </div>
     <div class="card-body">
       <div class="row mb-4">
@@ -398,51 +652,16 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th class="center">#</th>
               <th>Item</th>
-              <th>Description</th>
 
-              <th class="right">Unit Cost</th>
-              <th class="center">Qty</th>
-              <th class="right">Total</th>
+              <th class="right">Cost</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="center">1</td>
-              <td class="left strong">Speedometer</td>
-              <td class="left">Good quality</td>
+            <tr *ngFor="let product of productsUIList">
+              <td class="left strong">{{ product.productName }}</td>
 
-              <td class="right">Rs. 999,00</td>
-              <td class="center">1</td>
-              <td class="right">Rs. 999,00</td>
-            </tr>
-            <tr>
-              <td class="center">2</td>
-              <td class="left">Cushion Assy Rear</td>
-              <td class="left">Medium quality</td>
-
-              <td class="right">Rs. 150,00</td>
-              <td class="center">2</td>
-              <td class="right">Rs. 3.000,00</td>
-            </tr>
-            <tr>
-              <td class="center">3</td>
-              <td class="left">Brake Rod</td>
-              <td class="left">Used</td>
-
-              <td class="right">Rs. 499,00</td>
-              <td class="center">1</td>
-              <td class="right">Rs. 499,00</td>
-            </tr>
-            <tr>
-              <td class="center">4</td>
-              <td class="left">Piston Kit</td>
-              <td class="left">Good quality</td>
-
-              <td class="right">Rs. 3.999,00</td>
-              <td class="center">1</td>
-              <td class="right">Rs. 3.999,00</td>
+              <td class="right">Rs. {{ product.productCost }}</td>
             </tr>
           </tbody>
         </table>
@@ -455,25 +674,10 @@
             <tbody>
               <tr>
                 <td class="left">
-                  <strong>Subtotal</strong>
-                </td>
-                <td class="right">Rs. 8.497,00</td>
-              </tr>
-              <tr>
-                <td class="left">
-                  <strong>Discount (20%)</strong>
-                </td>
-                <td class="right">Rs. 1,699,40</td>
-              </tr>
-              <tr>
-                <td class="right">Rs. 679,76</td>
-              </tr>
-              <tr>
-                <td class="left">
                   <strong>Total</strong>
                 </td>
                 <td class="right">
-                  <strong>Rs. 7.477,36</strong>
+                  <strong>Rs. {{ totalCost }}</strong>
                 </td>
               </tr>
             </tbody>

@@ -10,10 +10,10 @@ import { Observable } from "rxjs";
 })
 export class TicketsService {
   /* Customer API */
-  apiUrlGetTicket: string = "api/Tickets/GetTickets";
-  apiUrlSaveTicket: string = "api/Tickets/SaveTicket";
-  apiUrlDeleteTicket: string = "api/Tickets/DeleteTicket";
-  apiUrlUpdateTicket: string = "api/Tickets/UpdateTicket";
+  private apiUrlGetTicket: string = "api/Tickets/GetTickets";
+  private apiUrlSaveTicket: string = "api/Tickets/SaveTicket";
+  private apiUrlDeleteTicket: string = "api/Tickets/DeleteTicket";
+  private apiUrlUpdateTicket: string = "api/Tickets/UpdateTicket";
 
   constructor(private dataService: DataService, private http: HttpClient) {}
 
@@ -47,7 +47,7 @@ export class TicketsService {
 
   removeTicket(id: number): Observable<Ticket> {
     return this.http.get<Ticket>(
-      `${environment.restApiUrl}${this.apiUrlUpdateTicket}?id=${id}`
+      `${environment.restApiUrl}${this.apiUrlDeleteTicket}?id=${id}`
     );
   }
 }

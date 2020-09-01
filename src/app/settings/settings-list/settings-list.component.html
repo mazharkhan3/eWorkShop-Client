@@ -1,115 +1,175 @@
-<div class="form-heading"> 
-    <div class="row">
-        <div class="col-6">
-                 <h4><i class="fa fa-cogs"></i> Settings </h4>
-        </div>
-        <div class="col-6">
-            <button type="button" class="btn btn-info float-right w-60" (click)="addCustomer()">
-                <i class="fa fa-save"></i> Save</button>
-        </div> 
+<!-- <div class="form-heading">
+  <div class="row">
+    <div class="col-6">
+      <h4><i class="fa fa-cogs"></i> Settings</h4>
     </div>
-</div>
+    <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-info float-right w-60"
+        (click)="addCustomer()"
+      >
+        <i class="fa fa-save"></i> Save
+      </button>
+    </div>
+  </div>
+</div> -->
 
 <nav>
-    <div class="nav nav-tabs m" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Service reminders</a>
-    </div>
-  </nav>
-  <div class="tab-content " id="nav-TabContent">
-        <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="jumbotron bg">
-            <h4 class="display-6 mb-5">Settings</h4>
-            <hr class="my-4">
-            <form>
-              <div class="form-row">
-                <div class="col-md-4 mb-3">
-                  <label for="validationDefault01">Store name</label>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="validationDefault02">Phone #</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="validationDefaultUsername">Email</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
-                  </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="validationDefault03">Street and block</label>
-                  <input type="text" class="form-control" id="validationDefault03" placeholder="Address" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="validationDefault04">City</label>
-                  <input type="text" class="form-control" id="validationDefault04" placeholder="City" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="validationDefault05">Zip</label>
-                  <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
-                </div>
-              </div>
-             
-              <button class="btn btn-primary" type="submit">Submit form</button>
-            </form>
-            <p class="lead">
-             
-            </p>
+  <div class="nav nav-tabs m" id="nav-tab" role="tablist">
+    <a
+      class="nav-item nav-link active"
+      id="nav-home-tab"
+      data-toggle="tab"
+      href="#nav-home"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >General</a
+    >
+    <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Service reminders</a> -->
+  </div>
+</nav>
+<div class="tab-content" id="nav-TabContent">
+  <div
+    class="tab-pane fade show active"
+    id="nav-home"
+    role="tabpanel"
+    aria-labelledby="nav-home-tab"
+  >
+    <div class="jumbotron bg">
+      <h4 class="display-6 mb-5">Settings</h4>
+      <hr class="my-4" />
+      <form>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationDefault01"
+              placeholder="First name"
+              [value]="user.Username"
+              required
+              readonly
+            />
           </div>
-          <div class="jumbotron bg">
-            <h4 class="display-6">Users / Employee</h4>
-            <hr class="my-4">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-6">
-                  <label>Add new user*</label>
-                    <input class="form-control " placeholder="Name"/>
-                    <button type="button" class="btn btn-info mt-3   w-60" (click)="addCustomer()">
-                      <i class="fa fa-plus"></i> Add user</button>
-                </div>
-                
-                <div class="col-sm-3 ">
-                  <label>Users</label>
-                  
-                 <input class="form-control">
-                </div>
-                <div class="col-sm-3">
-                  <label>Status</label>
-                  <select class="form-control mb-15" id="exampleFormControlSelect1">
-                    <option>Active</option>
-                    <option>Hide</option>
-                  
-                  </select>
-                  
-                </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Phone #</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationDefault02"
+              placeholder="Last name"
+              [value]="user.Phonenumber"
+              required
+              readonly
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername">Email</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
               </div>
-              <div class="form-group mt-5">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label" for="invalidCheck2">
-                    Enable pin code entry
-                  </label>
-                </div>
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="validationDefaultUsername"
+                placeholder="Username"
+                aria-describedby="inputGroupPrepend2"
+                required
+                readonly
+                [value]="user.Email"
+              />
             </div>
           </div>
-          <div class="jumbotron bg">
-      
-      
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Logout</a>
-            </p>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault03">Street and block</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationDefault03"
+              placeholder="Address"
+              required
+              readonly
+              [value]="user.Address"
+            />
           </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault05">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationDefault05"
+              placeholder="Zip"
+              required
+              readonly
+              [value]="user.Zip"
+            />
+          </div>
+        </div>
+
+        <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+      </form>
+      <p class="lead"></p>
     </div>
-  
-    
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <!-- <div class="jumbotron bg">
+      <h4 class="display-6">Users / Employee</h4>
+      <hr class="my-4" />
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <label>Add new user*</label>
+            <input class="form-control" placeholder="Name" />
+            <button
+              type="button"
+              class="btn btn-info mt-3 w-60"
+              (click)="addCustomer()"
+            >
+              <i class="fa fa-plus"></i> Add user
+            </button>
+          </div>
+
+          <div class="col-sm-3">
+            <label>Users</label>
+
+            <input class="form-control" />
+          </div>
+          <div class="col-sm-3">
+            <label>Status</label>
+            <select class="form-control mb-15" id="exampleFormControlSelect1">
+              <option>Active</option>
+              <option>Hide</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group mt-5">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck2"
+              required
+            />
+            <label class="form-check-label" for="invalidCheck2">
+              Enable pin code entry
+            </label>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="jumbotron bg">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Logout</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
       <div class="jumbotron bg">
         <h4 class="display-6">Service reminders</h4>
        
@@ -196,5 +256,5 @@
       <p class="lead">
         <button type="button" class="btn btn-light">Add service notification</button>        </p>
       </div>
-    </div>
-  </div>
+    </div> -->
+</div>

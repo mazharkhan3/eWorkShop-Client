@@ -11,6 +11,6 @@ export class Ticket {
   UpdatedDate: Date;
   UpdatedBy: bigint;
   IsArchived: boolean;
-  TemplateTypes: TemplateType[];
-  TicketInvoices: TicketInvoice[];
+  TemplateTypes: TemplateType[] = [];
+  TicketInvoices: TicketInvoice[] = [];
 }

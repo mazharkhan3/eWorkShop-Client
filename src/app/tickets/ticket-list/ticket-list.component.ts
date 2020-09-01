@@ -13,21 +13,27 @@ export class TicketListComponent implements OnInit {
   constructor(private ticketsService: TicketsService, private router: Router) {}
 
   ngOnInit() {
-    // this.getOrderList();
+    this.getTicketsList();
   }
 
-  // getOrderList() {
-  //   this.ticketsService.getOrderList().subscribe(
-  //     data => {
-  //       this.dataList = data;
-  //       // alert('Save');
-  //     },
-  //     error => {
-  //       alert(error.error.error_description);
-  //     }
-  //   );
-  // }
-  // addTicket(){
-  //   this.router.navigate(['tickets','ticket-add'])
-  // }
+  getTicketsList() {
+    this.ticketsService.getTickets().subscribe(
+      (data) => {
+        this.dataList = data;
+      },
+      (error) => {
+        alert(error.error.error_description);
+      }
+    );
+  }
+
+  goToTicketForm() {
+    this.router.navigate(["tickets", "ticket-add"]);
+  }
+
+  delete(ticketId: number) {
+    this.ticketsService.removeTicket(ticketId).subscribe((res) => {
+      this.getTicketsList();
+    });
+  }
 }

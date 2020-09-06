@@ -35,6 +35,9 @@ export class PerDayComponent implements OnInit {
         this.productsByMonth(data.ProductsByMonth);
         this.orderssByMonth(data.OrdersByMonth);
         this.salesByMonth(data.SalesByMonth);
+        this.productsByDay(data.ProductsByDay);
+        this.orderssByDay(data.OrdersByDay);
+        this.salesByDay(data.SalesByDay);
       },
       (error) => {}
     );
@@ -86,6 +89,66 @@ export class PerDayComponent implements OnInit {
       exportEnabled: true,
       title: {
         text: "Total Sale By Months",
+      },
+      data: [
+        {
+          type: "pie",
+          showInLengend: "true",
+          indexLabel: "{label} - {y}",
+          dataPoints: data,
+        },
+      ],
+    });
+
+    chart.render();
+  }
+
+  productsByDay(data) {
+    let chart = new CanvasJS.Chart("chartContainer3", {
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Total Products By Day",
+      },
+      data: [
+        {
+          type: "column",
+          showInLengend: "true",
+          indexLabel: "{label} - {y}",
+          dataPoints: data,
+        },
+      ],
+    });
+
+    chart.render();
+  }
+
+  orderssByDay(data) {
+    let chart = new CanvasJS.Chart("chartContainer4", {
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Total Orders By Day",
+      },
+      data: [
+        {
+          type: "line",
+          showInLengend: "true",
+          indexLabel: "{label} - {y}",
+          dataPoints: data,
+        },
+      ],
+    });
+
+    chart.render();
+  }
+
+  salesByDay(data) {
+    let chart = new CanvasJS.Chart("chartContainer5", {
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Total Sale By Day",
       },
       data: [
         {

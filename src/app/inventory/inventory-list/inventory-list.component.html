@@ -33,9 +33,14 @@
           class="form-control border-secondary py-2 mb-4 mt-3"
           type="search"
           placeholder="search for a specific product"
+          #productSearch
         />
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary mb-4 mt-3" type="button">
+          <button
+            (click)="searchProductByName(productSearch.value)"
+            class="btn btn-outline-secondary mb-4 mt-3"
+            type="button"
+          >
             <i class="fa fa-search"></i>
           </button>
         </div>

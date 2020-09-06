@@ -9,6 +9,7 @@ import { ProductModel } from "src/app/models/ProductModel";
   styleUrls: ["./inventory-list.component.scss"],
 })
 export class InventoryListComponent implements OnInit {
+  allProducts: ProductModel[] = [];
   products: ProductModel[] = [];
   product: ProductModel = new ProductModel();
   updateProductObj: ProductModel = new ProductModel();
@@ -37,6 +38,7 @@ export class InventoryListComponent implements OnInit {
   getProducts() {
     this.inventoryService.getProduct().subscribe(
       (data) => {
+        this.allProducts = data;
         this.products = data;
       },
       (error) => {}
@@ -75,5 +77,16 @@ export class InventoryListComponent implements OnInit {
       },
       (error) => {}
     );
+  }
+
+  searchProductByName(productName: string) {
+    // reassign customerslist
+    this.products = this.allProducts;
+
+    this.products = this.products.filter((item) => {
+      return (
+        item.ProductName.toLowerCase().indexOf(productName.toLowerCase()) >= 0
+      );
+    });
   }
 }
